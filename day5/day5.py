@@ -6,8 +6,9 @@ def make_stacks(filename):
     with open(filename) as file:
         initial = [line for line in file]
     stacks = []
+    num_stacks = len(initial[-1].split('   '))
 
-    for i in range(9):
+    for i in range(num_stacks):
         current_stack = []
         next_row = len(initial)-2
         next_addition = initial[next_row][1 + (i*4)]
@@ -49,7 +50,7 @@ def main():
     for instruction in instructions:
         #perform(stacks, instruction) 
         perform_part_2(stacks, instruction)
-        print('Done!!!')
+        #print('Done!!!')
 
     for stack in stacks:
         print(stack.pop())
